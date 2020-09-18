@@ -1,0 +1,44 @@
+Common Commands
+
+Create a new container
+docker run -p HOST_PORT:CONTAINER_PORT -d -e ENVIRONMENT_VARIABLES --name CUSTOM_CONTAINER_NAME CONTAINER_NAME
+-p = publish. define which host port you want to use.
+-d = detach. run container in background.
+--name = assign a custom name to the container instead of docker assigning random name.
+CONTAINER_NAME = name of container on dockerhub. if it can't be found locally in your images cache, then docker will go download it.
+ENVIRONMENT_VARIABLES = set environment variables in the container.
+
+e.g.
+docker run -p 3306:3306 -d -e MYSQL_RANDOM_ROOT_PASSWORD=yes --name sql_server mysql
+
+List all containers
+docker container ls -a 
+-a = display containers which are not running.
+
+Start a container
+docker start CONTAINER_NAME
+
+Stop a container
+docker stop CONTAINER_NAME
+
+Remove a container
+docker rm CONTAINER_NAME
+
+List all process running on a container
+docker container top CONTAINER_NAME
+
+See config file of container
+docker container inspect CONTAINER_NAME
+
+See container performance metrics
+docker container stats CONTAINER_NAME
+
+Access running container
+docker container exec -it CONTAINER_NAME PROMPT_NAME
+-it - run command in container and keep it live to accept furhter inputs
+
+e.g.
+docker container exec -it webhost bash
+
+Show ports being mapped from container to host
+docker container port CONTAINER_NAME

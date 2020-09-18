@@ -1,0 +1,17 @@
+Docker containers can exist inside virtual networks on the host machine, each with their own local IP address.
+Docker uses its own internal DNS resolution to allow communication between networks. Docker uses the netork name for DNS.
+
+show networks
+docker network ls
+
+show details of a network. 'Containers' property displays list of containers that are assigned to the network.
+docker networks inpsect NETWORK_NAME
+
+create a new virtual network
+docker network create NETWORK_NAME
+
+Add container to a network
+docker network connect NETWORK_NAME CONTAINER_NAME
+
+Remove a container from a network
+docker network disconnect NETWORK_NAME CONTAINER_NAME
