@@ -1,0 +1,23 @@
+Docker images are made up of 'layers'. Each layer is a series of commands and metadata. Each layer has a unique id. Layers can be shared between 
+images. This helps reduce the storage space required for an image, as base layers can be shared.
+
+Download an image from dockerhub. IMAGE_NAME consists of user_name/image_name. for official images there is no user name.
+IMAGE_TAG is an optional tag that can be used to get a specified version of the image. 
+docker pull IMAGE_NAME:IMAGE_TAG
+
+Create a copy of an existing image with a new tag name. You can then push this new image to dockerhub once you log in to your account.
+docker image tag IMAGE_NAME NEW_IMAGE_NAME
+
+See an images 'layers'
+docker image history
+
+See config file of image (useful things like OS, which ports are exposed etc)
+docker image inspect IMAGE_NAME
+
+Build a docker file to an image
+docker image build -t TAG_NAME .
+TAG_NAME = name to assign to this image
+. = the docker file in the current directory
+This command will work through docker file and for each line it will create a cache of that commands output, so next time you use that same line 
+it will use the cached value, instead of executing it again. If the command has been cached locally in the past, then you will see 'use cache' listed in
+console when creating an image.
