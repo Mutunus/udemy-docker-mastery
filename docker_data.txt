@@ -1,0 +1,23 @@
+ideally your containers should be immutatble and ephemeral i.e. you should not change them once they are up and they should be temporary
+
+but what if you have a database that you want to preserve after you destroy and re-create a container? data can be made persitent by using Volumes or Bind Mounts
+
+
+Volumes
+
+Keep data in a defined directory on the host machine. This means that even if you stop and remove the container, your data will be preserved. 
+
+see all volumes
+docker volume ls
+
+docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v VOLUME_NAME:/var/lib/mysql mysql
+giving a volume a unique name helps identify it when running the docker volume ls command.
+
+
+Bind Mounting
+
+Map a host directory to a container directory to give container access to host files/directories
+
+docker container run -it --rm -p 100:80 -v $(pwd):PATH_IN_CONTAINER CONTAINER_NAME
+$(pwd) = print current directory. you could manually enter the host path to the directory you want, but this is easier.
+PATH_IN_CONTAINER = the file path defined in the container.

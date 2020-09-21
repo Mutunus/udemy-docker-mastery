@@ -21,3 +21,6 @@ TAG_NAME = name to assign to this image
 This command will work through docker file and for each line it will create a cache of that commands output, so next time you use that same line 
 it will use the cached value, instead of executing it again. If the command has been cached locally in the past, then you will see 'use cache' listed in
 console when creating an image.
+
+Delete all images you are not using
+docker image prune -a
