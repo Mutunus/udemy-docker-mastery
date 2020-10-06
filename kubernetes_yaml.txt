@@ -1,0 +1,28 @@
+go to kubernetes webpage and see reference/api reference to see all available fields for all resouces
+
+
+get a full list of kubernetes resouces
+k api-resources
+
+get a full list of kubernetes api versions
+k api-versions
+
+print the full yaml file keys for a resource. 
+k explain RESOUCE_TYPE --recursive
+RESOUCE_TYPE = e.g. pod, service, deployment etc 
+
+print the spec kets for a resource. this is helpful when creating the yaml file spec.
+k explain RESOUCE_TYPE.spec
+you can use the dot notation to drill down deeper into the 
+
+k apply -f YAML_FILE
+execute a yaml file and generate defined resources
+-f = file to be executed
+
+show difference between existing deployment and the chosen file
+k diff -f YAML_FILE
+
+get resources with specified label
+k get RESOUCE_TYPE -l KEY=VALUE
+-l = get resouces with the corresponding label with the key and value defined 
+labels are important to allow communication between your resources. they are used to link together resources.
