@@ -1,0 +1,18 @@
+if you want to allow your pods to communicate externally other resources you need to create a service.
+
+create a service
+k expose deployment DEPLOYMENT_NAME --port PORT
+this will create a ClusterIP service that will have an IP assigned to it. this will allow you to communicate with the deployment using the assigned 
+service IP and the port you exposed. This will only open up communication between deployments on the same machine, not to external requests i.e. a LAN.
+
+list all services
+k get service
+
+test exposed service port
+curl SERVICE_IP:SERVICE_PORT
+
+k expose deployment DEPLOYMENT_NAME --port PORT --name SERVICE_NAME --type NodePort
+creates a NodePort service which will have a static IP assigned to it. this will allow you to communicate with the deployment from an exteranal source.
+
+k expose deployment DEPLOYMENT_NAME --port PORT --name SERVICE_NAME --type LoadBalancer
+exposes the service externally using a cloud provider's load balancer

@@ -1,0 +1,4 @@
+test deployment and see generated yaml
+k create deployment DEPLOYMENT_NAME --image IMAGE_NAME --dry-run -o yaml
+--dry-run = test deployment, but no not actually create it
+-o yaml = output the yaml that is generated

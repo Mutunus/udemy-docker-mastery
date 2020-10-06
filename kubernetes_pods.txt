@@ -1,0 +1,34 @@
+a kubernetes deployment conists of 1 or more replicate sets.
+a replicate set consists of 1 or more pods.
+pods conist of 1 or more containers.
+
+create a new pod using the cli
+k run POD_NAME --image IMAGE_NAME
+
+list pods
+k get pods
+
+create a new deployment
+k create deployment DEPLOYMENT_NAME --image IMAGE_NAME
+
+list deployments
+k get deployments
+
+remove a pod
+k delete pod POD_NAME
+
+remove a deployment
+k delete deployment DEPLOYMENT_NAME
+
+modify replica sets
+k scale deployment DEPLOYMENT_NAME --replicas NUM_REPLICAS
+
+print logs
+k logs deployment/DEPLOYMENT_NAME
+
+see info about pod
+k describe pod POD_NAME
+
+watch for live updates
+k get pods -w
+-w = same as watch in linux. will update logs live as changes occur.
